@@ -8,14 +8,20 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct AllCasesMainView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack(spacing: 0) {
+            AllCasesHeaderView()
+                .padding([.leading, .trailing], 16)
+            SplitLineView()
+                .padding([.top, .bottom], 16)
+        
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AllCasesMainView()
     }
 }
