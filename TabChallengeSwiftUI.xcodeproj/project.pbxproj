@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3B556D1324A2605B007C37DB /* SplitLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B556D1224A2605B007C37DB /* SplitLineView.swift */; };
+		3B556D1524A28213007C37DB /* AllCasesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B556D1424A28213007C37DB /* AllCasesListView.swift */; };
+		3B556D1824A290AC007C37DB /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B556D1724A290AC007C37DB /* ImageLoader.swift */; };
+		3B556D1A24A290E3007C37DB /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B556D1924A290E3007C37DB /* AsyncImageView.swift */; };
+		3B556D1C24A36928007C37DB /* LoadingSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B556D1B24A36928007C37DB /* LoadingSpinnerView.swift */; };
 		3B579E3D24A2585700BB0556 /* AllCasesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B579E3C24A2585700BB0556 /* AllCasesHeaderView.swift */; };
 		3BDA377D249CD81500398604 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA377C249CD81500398604 /* AppDelegate.swift */; };
 		3BDA377F249CD81500398604 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA377E249CD81500398604 /* SceneDelegate.swift */; };
@@ -38,6 +42,10 @@
 
 /* Begin PBXFileReference section */
 		3B556D1224A2605B007C37DB /* SplitLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitLineView.swift; sourceTree = "<group>"; };
+		3B556D1424A28213007C37DB /* AllCasesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCasesListView.swift; sourceTree = "<group>"; };
+		3B556D1724A290AC007C37DB /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		3B556D1924A290E3007C37DB /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
+		3B556D1B24A36928007C37DB /* LoadingSpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSpinnerView.swift; sourceTree = "<group>"; };
 		3B579E3C24A2585700BB0556 /* AllCasesHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCasesHeaderView.swift; sourceTree = "<group>"; };
 		3BDA3779249CD81500398604 /* TabChallengeSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabChallengeSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BDA377C249CD81500398604 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,9 +88,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B556D1624A2908C007C37DB /* ImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				3B556D1724A290AC007C37DB /* ImageLoader.swift */,
+				3B556D1924A290E3007C37DB /* AsyncImageView.swift */,
+				3B556D1B24A36928007C37DB /* LoadingSpinnerView.swift */,
+			);
+			path = ImageLoader;
+			sourceTree = "<group>";
+		};
 		3B579E3A24A2580000BB0556 /* All Cases */ = {
 			isa = PBXGroup;
 			children = (
+				3B556D1624A2908C007C37DB /* ImageLoader */,
 				3B579E3E24A25B2600BB0556 /* Views */,
 			);
 			path = "All Cases";
@@ -105,6 +124,7 @@
 				3BDA3780249CD81500398604 /* AllCasesMainView.swift */,
 				3B579E3C24A2585700BB0556 /* AllCasesHeaderView.swift */,
 				3B556D1224A2605B007C37DB /* SplitLineView.swift */,
+				3B556D1424A28213007C37DB /* AllCasesListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,10 +317,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B556D1824A290AC007C37DB /* ImageLoader.swift in Sources */,
 				3BDA377D249CD81500398604 /* AppDelegate.swift in Sources */,
 				3BDA377F249CD81500398604 /* SceneDelegate.swift in Sources */,
+				3B556D1C24A36928007C37DB /* LoadingSpinnerView.swift in Sources */,
 				3BDA3781249CD81500398604 /* AllCasesMainView.swift in Sources */,
+				3B556D1A24A290E3007C37DB /* AsyncImageView.swift in Sources */,
 				3B579E3D24A2585700BB0556 /* AllCasesHeaderView.swift in Sources */,
+				3B556D1524A28213007C37DB /* AllCasesListView.swift in Sources */,
 				3B556D1324A2605B007C37DB /* SplitLineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
