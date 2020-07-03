@@ -16,7 +16,6 @@ struct AllCasesMainView: View {
             SplitLineView()
                 .padding([.top, .bottom], 16)
             AllCasesListView()
-        
         }
     }
 }

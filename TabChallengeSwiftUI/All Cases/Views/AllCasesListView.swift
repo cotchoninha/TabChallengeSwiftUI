@@ -11,13 +11,12 @@ import Alamofire
 
 struct AllCasesListView: View {
     
-    private let networkOperations = NetworkOperations()
+    @ObservedObject var allCasesCellContent = AllCasesViewModelBuilder()
     
-    @State var allCasesCellContent: [AllCasesViewModel] = []
     @State var isAnimating: Bool = true
     
     var body: some View {
-        List(allCasesCellContent, id: \.id) { caseStudy in
+        List(allCasesCellContent.allCasesViewModel, id: \.id) { caseStudy in
             VStack {
                 Text(caseStudy.clientName)
                 AsyncImageView(
@@ -26,13 +25,13 @@ struct AllCasesListView: View {
                 ).aspectRatio(contentMode: .fit)
             }
         }.onAppear {
-            self.networkOperations.requestCaseStudies()
+            self.allCasesCellContent.getCaseStudies()
         }
     }
 }
 
 struct AllCasesListView_Previews: PreviewProvider {
     static var previews: some View {
-        AllCasesListView(allCasesCellContent: [AllCasesViewModel(clientName: "TfL", clientImage: "https://raw.githubusercontent.com/theappbusiness/engineering-challenge/master/endpoints/v1/images/decelerator_header-image-2x.jpg", teaser: "Testing Tube brakes, with TfL Decelerator")])
+        AllCasesListView()
     }
 }

@@ -10,34 +10,37 @@ import Foundation
 import Combine
 import Alamofire
 
+enum ErrorType: Error {
+    case error(description: String)
+}
+
 final class NetworkOperations {
-        
-    @Published var caseStudies: [CaseStudy] = []
-    @Published var error: AFError?
     
     private let caseStudiesUrl = "https://raw.githubusercontent.com/theappbusiness/engineering-challenge/master/endpoints/v1/caseStudies.json"
-    
-//    init() {}
-    
-    func requestCaseStudies() {
-        AF.request(caseStudiesUrl).responseData { response in
-            switch response.result {
-            case .success(let data):
-                do {
-                    let decodedResponse = try JSONDecoder().decode(Projects.self, from: data)
-                    
-                    DispatchQueue.main.async {
-                        self.caseStudies = decodedResponse.caseStudies
-                        
-                    }
-                } catch {
-                    print(error)
-                     self.error = error.asAFError
-                }
-            case .failure(let error):
-                self.error = error.asAFError
-            }
+        
+    func requestCaseStudies() -> AnyPublisher<Projects, ErrorType> {
+        
+        guard let url = URL(string: caseStudiesUrl) else {
+            return Fail(error: ErrorType.error(description: "Invalid URL"))
+                .eraseToAnyPublisher()
         }
+
+        let urlRequest = URLRequest(url: url)
+        
+        return URLSession.shared.dataTaskPublisher(for: urlRequest)
+            .tryMap { response -> Data in
+                guard
+                  let httpURLResponse = response.response as? HTTPURLResponse,
+                  httpURLResponse.statusCode == 200
+                  else {
+                    throw ErrorType.error(description: "statusCode")
+                }
+                return response.data
+        }
+        .decode(type: Projects.self, decoder: JSONDecoder())
+        .mapError({ ErrorType.error(description: $0.localizedDescription)
+        })
+        .eraseToAnyPublisher()
     }
     
 //    func loadImage(url: String, completion: @escaping imageDataResponse) {
