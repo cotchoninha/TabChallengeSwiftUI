@@ -16,12 +16,12 @@ struct AllCasesHeaderView: View {
             Image("TABLogo")
                 .cornerRadius(8.0)
                 .aspectRatio(contentMode: .fill)
-                .padding(.leading, 16)
+//                .padding(.leading, 16)
                 .frame(width: 32, height: 32, alignment: .center)
             Text("TAB's Projects")
                 .font(.largeTitle)
                 .foregroundColor(Color(red: 1.0, green: 0.264, blue: 0.0))
-                .padding(.trailing, 16)
+                .padding([.trailing, .leading], 16)
         }
     }
 }

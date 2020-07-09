@@ -10,11 +10,11 @@ import SwiftUI
 
 struct AllCasesMainView: View {
     var body: some View {
-        VStack(spacing: 0) {
+        VStack() {
             AllCasesHeaderView()
                 .padding([.leading, .trailing], 16)
-            SplitLineView()
-                .padding([.top, .bottom], 16)
+                .padding([.top], 32)
+            Divider()
             AllCasesListView()
         }
     }

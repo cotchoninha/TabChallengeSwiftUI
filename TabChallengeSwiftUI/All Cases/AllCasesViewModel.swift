@@ -8,11 +8,13 @@
 
 import Combine
 import Foundation
+import SwiftUI
 
 class AllCasesViewModelBuilder: ObservableObject {
     
     @Published var allCasesViewModel = [AllCasesViewModelStructure]()
     @Published var error: ErrorType?
+    @State var isAnimating: Bool = true
     
     private let networkOperations = NetworkOperations()
 
@@ -25,7 +27,7 @@ class AllCasesViewModelBuilder: ObservableObject {
     }
     
     func getCaseStudies() {
-        
+        isAnimating = true
         publisherRequest = networkOperations.requestCaseStudies()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] value in
@@ -40,6 +42,7 @@ class AllCasesViewModelBuilder: ObservableObject {
                         self.allCasesViewModel.append(AllCasesViewModelStructure(clientName: caseStudy.client ?? "", clientImage: caseStudy.heroImage, teaser: caseStudy.teaser
                         ))
                     }
+                    self.isAnimating = false
             })
     }
 }

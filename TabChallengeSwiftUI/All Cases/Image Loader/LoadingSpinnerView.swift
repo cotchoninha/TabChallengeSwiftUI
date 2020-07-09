@@ -24,11 +24,3 @@ struct LoadingSpinnerView: UIViewRepresentable {
         isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
     }
 }
-
-//struct LoadingSpinnerView_Previews: PreviewProvider {
-//    @State var isAnimating: Bool = true
-//    static var previews: some View {
-//        
-//        LoadingSpinnerView(isAnimating: $isAnimating, style: .medium)
-//    }
-//}

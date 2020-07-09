@@ -7,21 +7,18 @@
 //
 
 import SwiftUI
-import Alamofire
 
 struct AllCasesListView: View {
     
     @ObservedObject var allCasesCellContent = AllCasesViewModelBuilder()
     
-    @State var isAnimating: Bool = true
-    
     var body: some View {
         List(allCasesCellContent.allCasesViewModel, id: \.id) { caseStudy in
-            VStack {
+            VStack(alignment: .leading) {
                 Text(caseStudy.clientName)
                 AsyncImageView(
                     url: caseStudy.clientImage,
-                    placeholder: LoadingSpinnerView(isAnimating: self.$isAnimating, style: .large)
+                    placeholder: LoadingSpinnerView(isAnimating: self.allCasesCellContent.$isAnimating, style: .medium)
                 ).aspectRatio(contentMode: .fit)
             }
         }.onAppear {
