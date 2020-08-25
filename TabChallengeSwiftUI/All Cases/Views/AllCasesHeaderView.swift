@@ -11,12 +11,9 @@ import SwiftUI
 struct AllCasesHeaderView: View {
     var body: some View {
         HStack(spacing: 42.0) {
-//            Spacer()
-//                .frame(width: 16, alignment: .leading)
             Image("TABLogo")
                 .cornerRadius(8.0)
                 .aspectRatio(contentMode: .fill)
-//                .padding(.leading, 16)
                 .frame(width: 32, height: 32, alignment: .center)
             Text("TAB's Projects")
                 .font(.largeTitle)

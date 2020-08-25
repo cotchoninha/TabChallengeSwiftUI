@@ -10,9 +10,16 @@ import SwiftUI
 import Combine
 import Foundation
 
-class ImageLoader: ObservableObject {
+final class ImageLoader: ObservableObject {
     
-    @Published var image: UIImage?
+    let objectWillChange = PassthroughSubject<Data, Never>()
+    
+    var data = Data() {
+        didSet {
+            objectWillChange.send(data)
+        }
+    }
+    
     private var cancellable: AnyCancellable?
     private let url: String
 
